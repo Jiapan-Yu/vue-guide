@@ -1,9 +1,11 @@
-import { AlertService } from './app/alert.service'
-import { ComponentService } from './app/component.service'
-import { run } from './app/utils/app'
-import './main.scss'
+import Vue from 'vue'
+import App from './App.vue'
 
-const alertService = new AlertService()
-const componentService = new ComponentService()
+const root = document.createElement('div')
+document.body.appendChild(root)
 
-run(alertService, componentService)
+new Vue({
+  render(h) {
+    return h(App)
+  }
+}).$mount(root)
