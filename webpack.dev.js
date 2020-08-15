@@ -2,9 +2,11 @@ const path = require("path")
 const common = require('./webpack.common')
 const { merge } = require("webpack-merge")
 var HtmlWebpackPlugin = require('html-webpack-plugin')
+const webpack = require('webpack')
 
 module.exports = merge(common, {
   mode: "development",
+  devtool: "#@cheap-eval-source-map",
   output: {
     filename: "[name].bundle.js",
     path: path.resolve(__dirname, "dist")
@@ -12,7 +14,9 @@ module.exports = merge(common, {
   plugins: [
     new HtmlWebpackPlugin({
       template: './src/template.html'
-    })
+    }),
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoEmitOnErrorsPlugin(),
   ],
   module: {
     rules: [
@@ -25,5 +29,13 @@ module.exports = merge(common, {
         ], // actually execute css-loader first, then style-loader
       }
     ]
+  },
+  devServer: {
+    port: 8000,
+    host: 'localhost', // '0.0.0.0' not working
+    overlay: {
+      errors: true, // 出现了任何错误都让其展示到网页上面方便查看
+    },
+    hot: true,
   }
 })

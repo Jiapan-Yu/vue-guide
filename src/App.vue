@@ -9,7 +9,7 @@
 export default {
   data() {
     return {
-      text: 'abcd'
+      text: 'abcde'
     }
   }
 }
@@ -17,7 +17,7 @@ export default {
 
 <style>
 #test {
-  color: blue;
+  color: orange;
   font-size: 25px;
 }
 </style>
