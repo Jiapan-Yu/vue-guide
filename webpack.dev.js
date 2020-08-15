@@ -31,7 +31,7 @@ module.exports = merge(common, {
     ]
   },
   devServer: {
-    port: 8000,
+    port: 8001,
     host: 'localhost', // '0.0.0.0' not working
     overlay: {
       errors: true, // 出现了任何错误都让其展示到网页上面方便查看
