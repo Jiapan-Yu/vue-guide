@@ -1,4 +1,3 @@
-const path = require("path")
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 
 module.exports = {
@@ -29,7 +28,10 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['@babel/preset-env']
+            presets: ['@babel/preset-env'],
+            plugins: [
+              "transform-vue-jsx",
+            ],
           }
         }
       },
