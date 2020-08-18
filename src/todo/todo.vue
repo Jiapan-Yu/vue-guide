@@ -18,6 +18,7 @@
       :filter="filter"
       :todos="todos"
       @toggle="toggleFilter"
+      @clearAllCompleted="clearAllCompleted"
     >
     </Tabs>
   </section>
@@ -71,6 +72,9 @@ export default {
     },
     toggleFilter(state) {
       this.filter = state
+    },
+    clearAllCompleted() {
+      this.todos = this.todos.filter(todo => !todo.completed)
     },
   }
 }
