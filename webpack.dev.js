@@ -29,7 +29,7 @@ module.exports = merge(common, {
         ], // actually execute css-loader first, then style-loader
       },
       {
-        test: /\.styl$/i,
+        test: /\.styl(us)?$/i,
         use: [
           'style-loader', // 3. Inject styles into DOM
           'css-loader', // 2. Turns css into commonjs
