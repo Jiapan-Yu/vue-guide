@@ -6,7 +6,7 @@ const webpack = require('webpack')
 
 module.exports = merge(common, {
   mode: "development",
-  devtool: "#@cheap-eval-source-map",
+  devtool: "eval-source-map",
   output: {
     filename: "[name].bundle.js",
     path: path.resolve(__dirname, "dist")
