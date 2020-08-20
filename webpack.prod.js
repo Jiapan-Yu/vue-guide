@@ -40,6 +40,14 @@ module.exports = merge(common, {
           'less-loader', // 1. Turns sass into css
         ], // actually execute css-loader first, then style-loader
       },
+      {
+        test: /\.styl(us)?$/i,
+        use: [
+          'style-loader', // 3. Inject styles into DOM
+          'css-loader', // 2. Turns css into commonjs
+          'stylus-loader', // 1. Turns sass into css
+        ], // actually execute css-loader first, then style-loader
+      },
     ]
   }
 })
