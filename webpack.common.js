@@ -13,7 +13,8 @@ module.exports = {
       },
       {
         test: /\.(svg|png|jpg|gif)$/i,
-        use: {
+        use: [
+          {
             loader: 'file-loader',
             options: {
               // esModule: false,
@@ -21,19 +22,22 @@ module.exports = {
               outputPath: 'imgs'
             }
           }
+        ]
       },
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader',
-          options: {
-            presets: ['@babel/preset-env'],
-            plugins: [
-              "transform-vue-jsx",
-            ],
-          }
-        }
+        use: [
+          {
+            loader: 'babel-loader',
+            options: {
+              presets: ['@babel/preset-env'],
+              plugins: [
+                "transform-vue-jsx",
+              ],
+            },
+          },
+        ],
       },
       {
         test: /\.vue$/,
