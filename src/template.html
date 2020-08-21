@@ -3,11 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Webpack Demo</title>
+    <title>官方 vuejs 教程学习</title>
   </head>
   <body>
     <div id="app">
-      {{ message }}
+      <ol>
+        <todo-item
+          v-for="item in groceryList"
+          v-bind:todo="item"
+          v-bind:key="item.id"
+        ></todo-item>
+      </ol>
     </div>
   </body>
 </html>
