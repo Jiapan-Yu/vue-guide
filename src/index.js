@@ -23,9 +23,9 @@ const router = new VueRouter({
   routes // (缩写) 相当于 routes: routes
 })
 
-new Vue({
-  router,
-  render(h) {
-    return h(Guide)
+var app = new Vue({
+  el: '#app',
+  data: {
+    message: 'Hello Vue!'
   }
-}).$mount(root)
+})
