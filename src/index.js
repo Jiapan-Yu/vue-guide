@@ -23,6 +23,8 @@ const router = new VueRouter({
   routes // (缩写) 相当于 routes: routes
 })
 
+
+
 Vue.component('todo-item', {
   props: ['todo'],
   template: '<li>{{ todo.text }}</li>',
@@ -30,13 +32,29 @@ Vue.component('todo-item', {
 
 // how to get app instance in chrome console just like
 // the official doc? when debugging i can use app directly
+let data = {
+  groceryList: [
+    { id: 0, text: '蔬菜' },
+    { id: 1, text: '奶酪' },
+    { id: 2, text: '随便其它什么人吃的东西' },
+  ],
+};
+
 var app = new Vue({
   el: '#app',
-  data: {
-    groceryList: [
-      { id: 0, text: '蔬菜' },
-      { id: 1, text: '奶酪' },
-      { id: 2, text: '随便其它什么人吃的东西' },
-    ],
-  },
+  data: data,
+})
+
+console.log(app.$data === data)
+console.log(app.$el === document.getElementById('#app'))
+console.log(app.$el)
+
+// null, don't know why
+console.log(document.getElementById('#app'))
+
+console.log(window)
+
+// null, don't know why
+window.addEventListener('load', e => {
+  console.log(document.getElementById('#app'))
 })
