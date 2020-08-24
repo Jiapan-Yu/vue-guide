@@ -7,8 +7,11 @@
   </head>
   <body>
     <div id="app">
-      <span v-once>Message: {{ msg }}</span>
-      <button @click=" msg = 5 ">click</button>
+      <p>
+        Ask a yes/no question:
+        <input v-model="question">
+      </p>
+      <p>{{ answer }}</p>
     </div>
   </body>
 </html>
