@@ -2,8 +2,6 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import App from './App.vue'
 import Guide from './Guide.vue'
-import axios from 'axios'
-import _ from 'lodash'
 import './assets/styles/global.styl'
 
 Vue.use(VueRouter)
@@ -27,43 +25,17 @@ const router = new VueRouter({
 
 
 
-/* Vue.component('todo-item', {
-  props: ['todo'],
-  template: '<li>{{ todo.text }}</li>',
-}) */
+Vue.component('button-counter', {
+  data() {
+    return {
+      count: 0
+    }; // 注意：这个地方容易写成逗号会报错
+  },
+  template: '<button v-on:click=" ++count">You clicked me {{ count }} times</button>',
+});
 
 // how to get app instance in chrome console just like
 // the official doc? when debugging i can use app directly
 var app = new Vue({
   el: '#app',
-  data: {
-    question: '',
-    answer: 'I cannot give you an answer until you ask a question!',
-  },
-  watch: {
-    question(newQuestion, oldQuestion) {
-      this.answer = 'Waiting for you to stop typing...'
-      this.debouncedGetAnswer()
-    },
-  },
-  created() {
-    this.debouncedGetAnswer = _.debounce(this.getAnswer, 500)
-  },
-  methods: {
-    getAnswer: function() {
-      if (this.question.indexOf('?') === -1) {
-        this.answer = 'Questions usually contain a question mark. ;-)'
-        return
-      }
-      this.answer = 'Thinking...'
-      let vm = this
-      axios.get('https://yesno.wtf/api')
-        .then(response => {
-          vm.answer = _.capitalize(response.data.answer)
-        })
-        .catch(error => {
-          vm.answer = 'Error! Could not reach the API. ' + error
-        })
-    },
-  },
 })
