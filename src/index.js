@@ -25,12 +25,9 @@ const router = new VueRouter({
 
 
 
-Vue.component('alert-box', {
+Vue.component('blog-post-row', {
   template:  `
-    <div class="demo-alert-box">
-      <strong>Error!</strong>
-      <slot></slot>
-    </div>
+    <tr>1</tr>
   `,
 });
 
