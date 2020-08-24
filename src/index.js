@@ -25,21 +25,9 @@ const router = new VueRouter({
 
 
 
-Vue.component('blog-post-row', {
-  template:  `
-    <tr>1</tr>
-  `,
-});
 
 // how to get app instance in chrome console just like
 // the official doc? when debugging i can use app directly
 var app = new Vue({
   el: '#app',
-  data: {
-    posts: [
-      { id: 1, title: 'My journey with Vue' },
-      { id: 2, title: 'Blogging with Vue' },
-      { id: 3, title: 'Why Vue is so fun' }
-    ],
-  },
 })
