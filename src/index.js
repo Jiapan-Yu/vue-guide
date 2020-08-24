@@ -25,9 +25,13 @@ const router = new VueRouter({
 
 
 
-Vue.component('blog-post', {
-  props: ['title'],
-  template: '<h3>{{ title }}</h3>',
+Vue.component('alert-box', {
+  template:  `
+    <div class="demo-alert-box">
+      <strong>Error!</strong>
+      <slot></slot>
+    </div>
+  `,
 });
 
 // how to get app instance in chrome console just like
