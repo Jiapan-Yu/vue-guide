@@ -7,7 +7,11 @@
   </head>
   <body>
     <div id="app">
-      <button-counter></button-counter>
+      <blog-post
+        v-for="post in posts"
+        v-bind:title="post.title"
+        v-bind:key="post.id"
+      ></blog-post>
     </div>
   </body>
 </html>

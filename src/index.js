@@ -25,17 +25,20 @@ const router = new VueRouter({
 
 
 
-Vue.component('button-counter', {
-  data() {
-    return {
-      count: 0
-    }; // 注意：这个地方容易写成逗号会报错
-  },
-  template: '<button v-on:click=" ++count">You clicked me {{ count }} times</button>',
+Vue.component('blog-post', {
+  props: ['title'],
+  template: '<h3>{{ title }}</h3>',
 });
 
 // how to get app instance in chrome console just like
 // the official doc? when debugging i can use app directly
 var app = new Vue({
   el: '#app',
+  data: {
+    posts: [
+      { id: 1, title: 'My journey with Vue' },
+      { id: 2, title: 'Blogging with Vue' },
+      { id: 3, title: 'Why Vue is so fun' }
+    ],
+  },
 })
