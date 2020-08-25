@@ -31,13 +31,16 @@ const router = new VueRouter({
 var app = new Vue({
   el: '#app',
   data: {
-    items: [
-      { message: 'Foo' },
-      { message: 'Bar' },
-    ],
+    numbers: [[1, 2, 3, 4, 5], [6, 7, 8, 9, 10]],
+  },
+  computed: {
+    evenNumbers() {
+      let arr = []
+      this.numbers.forEach(v => {
+        arr.push(...(v.filter(number => number % 2 === 0)))
+      })
+      console.log(arr)
+      return arr
+    },
   },
 });
-
-app.items.push({ message: 'Baz' })
-
-app.items = app.items.filter(v => v.message.match(/Foo/))
