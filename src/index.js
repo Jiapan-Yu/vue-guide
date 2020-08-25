@@ -25,17 +25,45 @@ const router = new VueRouter({
 
 
 
+Vue.component('todo-item', {
+  template: `\
+    <li>\
+      {{ title }}\
+      <button v-on:click="$emit('remove')">Remove</button>\
+    </li>\
+  `,
+  props: ['title'],
+})
 
 // how to get app instance in chrome console just like
 // the official doc? when debugging i can use app directly
 var app = new Vue({
   el: '#app',
   data: {
-    numbers: [[1, 2, 3, 4, 5], [6, 7, 8, 9, 10]],
+    newTodoText: '',
+    todos: [
+      {
+        id: 1,
+        title: 'Do the dishes',
+      },
+      {
+        id: 2,
+        title: 'Take out the trash',
+      },
+      {
+        id: 3,
+        title: 'Mow the lawn',
+      },
+    ],
+    nextTodoId: 4,
   },
   methods: {
-    even(arr) {
-      return arr.filter(v => v % 2 === 0)
+    addNewTodo() {
+      this.todos.push({
+        id: this.nextTodoId++,
+        title: this.newTodoText,
+      })
+      this.newTodoText = ''
     },
   },
 });
