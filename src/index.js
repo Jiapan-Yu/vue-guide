@@ -33,14 +33,9 @@ var app = new Vue({
   data: {
     numbers: [[1, 2, 3, 4, 5], [6, 7, 8, 9, 10]],
   },
-  computed: {
-    evenNumbers() {
-      let arr = []
-      this.numbers.forEach(v => {
-        arr.push(...(v.filter(number => number % 2 === 0)))
-      })
-      console.log(arr)
-      return arr
+  methods: {
+    even(arr) {
+      return arr.filter(v => v % 2 === 0)
     },
   },
 });

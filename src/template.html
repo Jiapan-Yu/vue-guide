@@ -6,10 +6,12 @@
     <title>官方 vuejs 教程学习</title>
   </head>
   <body>
-    <ul id="app">
-      <li v-for="evenNumber in evenNumbers" v-bind:key="evenNumber">
-        {{ evenNumber }}
-      </li>
-    </ul>
+    <div id="app">
+      <ul v-for="numArr in numbers">
+        <li v-for="num in even(numArr)" v-bind:key="num">
+          {{ num }}
+        </li>
+      </ul>
+    </div>
   </body>
 </html>
