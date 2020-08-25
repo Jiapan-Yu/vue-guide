@@ -25,6 +25,11 @@
           v-on:remove="todos.splice(index, 1)"
         ></li>
       </ul>
+      <input 
+        type="button" 
+        value="click me"
+        v-on:click.prevent.right.ctrl="submit"
+      >
     </div>
   </body>
 </html>

@@ -65,5 +65,8 @@ var app = new Vue({
       })
       this.newTodoText = ''
     },
+    submit() {
+      alert('...123')
+    },
   },
 });
