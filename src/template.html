@@ -7,10 +7,12 @@
   </head>
   <body>
     <div id="app">
-      <ul v-for="numArr in numbers">
-        <li v-for="num in even(numArr)" v-bind:key="num">
-          {{ num }}
-        </li>
+      <ul>
+        <template v-for="numArr in numbers">
+          <li v-for="num in even(numArr)" v-bind:key="num">
+            {{ num }}
+          </li>
+        </template>
       </ul>
     </div>
   </body>
