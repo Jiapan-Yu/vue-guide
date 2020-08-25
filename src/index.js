@@ -30,4 +30,14 @@ const router = new VueRouter({
 // the official doc? when debugging i can use app directly
 var app = new Vue({
   el: '#app',
-})
+  data: {
+    items: [
+      { message: 'Foo' },
+      { message: 'Bar' },
+    ],
+  },
+});
+
+app.items.push({ message: 'Baz' })
+
+app.items = app.items.filter(v => v.message.match(/Foo/))

@@ -6,9 +6,10 @@
     <title>官方 vuejs 教程学习</title>
   </head>
   <body>
-    <div id="app">
-      <div v-if="Math.random() > 0.5">Now you see me</div>
-      <div v-else>Now you don't</div>
-    </div>
+    <ul id="app">
+      <li v-for="item in items" v-bind:key="item.message">
+        {{ item.message }}
+      </li>
+    </ul>
   </body>
 </html>
