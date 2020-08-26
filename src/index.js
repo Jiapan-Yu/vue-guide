@@ -40,6 +40,11 @@ Vue.component('todo-item', {
 var app = new Vue({
   el: '#app',
   data: {
-    checkedNames: [],
+    selected: 'A',
+    options: [
+      { text: 'One', value: 'A' },
+      { text: 'Two', value: 'B' },
+      { text: 'Three', value: 'C' },
+    ],
   },
 });
