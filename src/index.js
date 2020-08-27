@@ -12,6 +12,8 @@ Vue.component('todo-item', {
 
 // how to get app instance in chrome console just like
 // the official doc? when debugging i can use app directly
+
+// 创建根 Vue 实例 
 var app = new Vue({
   el: '#app',
   data: {
