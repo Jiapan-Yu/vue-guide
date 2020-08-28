@@ -1,13 +1,20 @@
 import Vue from 'vue'
 
-Vue.component('todo-item', {
-  template: `\
-    <li>\
-      {{ title }}\
-      <button v-on:click="$emit('remove')">Remove</button>\
-    </li>\
+Vue.component('base-checkbox', {
+  model: {
+    prop: 'checked',
+    event: 'change',
+  },
+  props: {
+    checked: Boolean,
+  },
+  template: `
+    <input
+      type="checkbox"
+      v-bind:checked="checked"
+      v-on:change="$emit('change', $event.target.checked)"
+    >
   `,
-  props: ['title'],
 })
 
 // how to get app instance in chrome console just like
@@ -17,11 +24,13 @@ Vue.component('todo-item', {
 var app = new Vue({
   el: '#app',
   data: {
-    selected: 'A',
-    options: [
-      { text: 'One', value: 'A' },
-      { text: 'Two', value: 'B' },
-      { text: 'Three', value: 'C' },
-    ],
+    lovingVue: true,
+  },
+  computed: {
+    toggle: function() {
+      return this.lovingVue
+    },
   },
 });
+
+console.log(app.toggle)

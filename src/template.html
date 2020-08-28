@@ -7,15 +7,7 @@
   </head>
   <body>
     <div id="app">
-      <select v-model="selected">
-        <option
-          v-for="option in options"
-          v-bind:value="option.value"
-        >
-          {{ option.text }}
-        </option>
-      </select>
-      <span>Selecte: {{ selected }}</span>
+      <base-checkbox v-model="lovingVue"></base-checkbox>
     </div>
   </body>
 </html>
