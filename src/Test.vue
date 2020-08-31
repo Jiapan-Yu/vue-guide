@@ -1,8 +1,12 @@
 <template>
   <div>
     <span>
-      <!-- 绑定在 <slot> 元素上的 attribute 被称为插槽 prop -->
-      <slot :userName="user">{{user.firstName}}</slot>
+      <slot :userName="user" name="header">
+        {{ user.firstName }}
+      </slot>
+      <slot :hobbyData="hobby" name="footer">
+        {{ hobby.fruit }}
+      </slot>
     </span>
   </div>
 </template>
@@ -14,6 +18,10 @@ export default {
       user: {
         firstName: 'grace',
         lastName: 'haLi',
+      },
+      hobby: {
+        fruit: 'apple',
+        color: 'blue',
       },
     };
   },

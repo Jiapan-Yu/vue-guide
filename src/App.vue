@@ -1,6 +1,11 @@
 <template>
-  <Test v-slot="slotProps">
-    {{ slotProps.userName.firstName }}
+  <Test>
+    <template v-slot:header="slotProps">
+      {{ slotProps.userName.firstName }}
+    </template>
+    <template v-slot:footer="slotProps">
+      {{ slotProps.hobbyData.fruit }}
+    </template>
   </Test>
 </template>
 
