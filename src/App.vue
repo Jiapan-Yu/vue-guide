@@ -1,17 +1,10 @@
 <template>
   <Test>
-    <div>大家好我是父组件</div>
-    <template v-slot:header>
-      <h1>Here might be a page title</h1>
-    </template>
-
-    <template v-slot:default>
-      <p>A paragraph for the main content.</p>
-      <p>And another one.</p>
-    </template>
-
-    <template v-slot:footer>
-      <p>Here's footer info</p>
+    <!-- 我们可以使用带值的 v-slot 来定义我们提供的插槽 prop 的名字 -->
+    <!-- 这儿我们选择将包含所有插槽 prop 的对象命名为 slotProps，但 -->
+    <!-- 你也可以使用任意你喜欢的名字 -->
+    <template v-slot:default="slotProps">
+      {{ slotProps.userName.firstName }}
     </template>
   </Test>
 </template>
