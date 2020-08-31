@@ -1,9 +1,9 @@
 <template>
   <Test>
-    <template v-slot:header="{userName}">
+    <template #header="{userName}">
       {{ userName.firstName }}
     </template>
-    <template v-slot:footer="{hobbyData}">
+    <template #footer="{hobbyData}">
       {{ hobbyData.fruit }}
     </template>
   </Test>
