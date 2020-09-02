@@ -1,29 +1,19 @@
 import Vue from 'vue'
-import App from './App.vue'
 
-const root = document.createElement('div')
-document.body.appendChild(root)
+Vue.directive('pin', {
+  bind: function (el, binding, vnode) {
+    el.style.position = 'fixed'
+    let s = (binding.arg == 'left' ? 'left' : 'top')
+    el.style[s] = binding.value + 'px'
+  },
+});
 
-// 定义一个混入对象
-var myMixin = {
-  data: function() {
+// 创建根 Vue 实例 
+var app = new Vue({
+  el: '#app',
+  data: function () {
     return {
-      message: 'message in mixin',
-      foo: 'abc',
+      direction: 'left',
     };
   },
-}
-
-new Vue({
-  render(h) {
-    return h(App)
-  },
-  data: {
-    message: 'message in component',
-    bar: 'qwer',
-  },
-  created: function() {
-    console.log(this.$data);
-  },
-  mixins: [myMixin],
-}).$mount(root)
+});
